@@ -1,0 +1,37 @@
+<%= form_with(model: fish) do |form| %>
+  <% if fish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fish.errors.count, "error") %> prohibited this fish from being saved:</h2>
+
+      <ul>
+        <% fish.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :common_name %>
+    <%= form.text_field :common_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :scientific_name %>
+    <%= form.text_field :scientific_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ph %>
+    <%= form.text_field :ph %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
