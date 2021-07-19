@@ -60,10 +60,15 @@ deleteFish = (id) => {
   })
   .then((data) => {
     if(data.ok) {
-      this.reloadBeers();
+      this.reloadFish();
       return data.json();
     }
     throw new Error("Network Error.");
   })
   .catch((err) => message.error("Error: " + err));
+};
+
+reloadFish = () => {
+  this.setState({ fish: [] });
+  this.loadFish();
 };
