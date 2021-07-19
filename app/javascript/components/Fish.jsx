@@ -51,3 +51,19 @@ columns = [
     ),
   },
 ];
+
+deleteFish = (id) => {
+  const url = `api/v1/fish/${id}`;
+
+  fetch(url, {
+    method: "delete",
+  })
+  .then((data) => {
+    if(data.ok) {
+      this.reloadBeers();
+      return data.json();
+    }
+    throw new Error("Network Error.");
+  })
+  .catch((err) => message.error("Error: " + err));
+};
