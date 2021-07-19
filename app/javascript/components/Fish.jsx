@@ -1,4 +1,4 @@
-import { message } from "antd";
+import { message, Popconfirm } from "antd";
 
 state = {
   fish: [],
@@ -31,3 +31,23 @@ loadFish = () => {
     })
     .catch((err) => message.error("Error: " + err));
 }
+
+columns = [
+  {
+    title: "Fish",
+    dataIndex: "common_name",
+    key: "common_name",
+  },
+
+  ...{
+    title: "",
+    key: "action",
+    render: (_text, record) => (
+      <Popconfirm title="Are you sure you want to delete this fish?" onConfirm={() => this.deleteFish(record.id)} okText="Yes" cancelText="No">
+        <a href="#" type="danger">
+          Delete{" "}
+        </a>
+        </Popconfirm>      
+    ),
+  },
+];
