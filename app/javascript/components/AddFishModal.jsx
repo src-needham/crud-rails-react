@@ -10,7 +10,7 @@ class AddFishModal extends React.Component {
   };
 
   onFinish = (values) => {
-    const url = "api/v1/fish/";
+    const url = "api/v1/fish/create";
     fetch(url, {
       method: "post",
       headers: {
@@ -34,13 +34,13 @@ class AddFishModal extends React.Component {
 
   showModal = () => {
     this.setState({
-      visble = true,
+      visible: true,
     });
   };
 
   handleCancel = () => {
     this.setState({
-      visible = false,
+      visible: false,
     });
   };
 
@@ -57,7 +57,7 @@ class AddFishModal extends React.Component {
               <Input placeholder="Input the common name" />
             </Form.Item>
 
-            <Form.Item name="scientific_name" label="Scientific Name" rules={[{ requrie: true, message: "Please enter the scientific name."}]}>
+            <Form.Item name="scientific_name" label="Scientific Name" rules={[{ required: true, message: "Please enter the scientific name."}]}>
               <Input placeholder="Input the scientific name" />
             </Form.Item>
 

@@ -28,7 +28,7 @@ class Fish extends React.Component{
       title: "",
       key: "action",
       render: (_text, record) => (
-        <Popconfirm title="Are you sure you want to delete this fish?" onConfirm={() => this.deleteBeer(record.id)} okText="Yes" cancelText="No">
+        <Popconfirm title="Are you sure you want to delete this fish?" onConfirm={() => this.deleteFish(record.id)} okText="Yes" cancelText="No">
           <a href="#" type="danger">
             Delete{" "}
           </a>
@@ -92,13 +92,13 @@ class Fish extends React.Component{
 
   reloadFish = () => {
     this.setState({ fish: [] });
-    his.loadFish();
+    this.loadFish();
   };
 
   render() {
     return (
       <>
-        <Table className="table-striped-rows" dataSource={this.state.fish} columns={this.columns} pagination={{ pagesize: 5}} />
+        <Table className="table-striped-rows" dataSource={this.state.fish} columns={this.columns} pagination={{ pageSize: 5}} />
       
         <AddFishModal reloadFish={this.reloadFish} />
       </>

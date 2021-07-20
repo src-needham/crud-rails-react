@@ -5,7 +5,7 @@ class Api::V1::FishController < ApplicationController
   # GET /fish/.json
 
   def index 
-    @fish = Fish.all.order(brand: :asc)
+    @fish = Fish.all.order(common_name: :asc)
     render json: @fish
   end
 
